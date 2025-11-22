@@ -173,7 +173,7 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    // Canvas animation
+    // Canvas animation with icy blue colors
     const canvas = document.getElementById("bg-anim") as HTMLCanvasElement
     if (!canvas) return
 
@@ -196,8 +196,8 @@ export default function Home() {
     }
 
     function randColor() {
-      const purples = ["#a259ff", "#7a2ff7", "#6a11cb", "#833ab4", "#cf28e5", "#d946ef"]
-      return purples[Math.floor(Math.random() * purples.length)]
+      const icyBlues = ["#60a5fa", "#3b82f6", "#2563eb", "#1d4ed8", "#38bdf8", "#7dd3fc"]
+      return icyBlues[Math.floor(Math.random() * icyBlues.length)]
     }
 
     function createDots() {
@@ -226,7 +226,7 @@ export default function Home() {
           if (dist < LINE_DIST) {
             ctx.save()
             ctx.globalAlpha = 1 - dist / LINE_DIST
-            ctx.strokeStyle = "#b47aff"
+            ctx.strokeStyle = "#60a5fa"
             ctx.lineWidth = 1.1
             ctx.beginPath()
             ctx.moveTo(dots[i].x, dots[i].y)
@@ -242,7 +242,7 @@ export default function Home() {
         ctx.beginPath()
         ctx.arc(dot.x, dot.y, DOT_RADIUS, 0, Math.PI * 2, false)
         ctx.fillStyle = dot.color
-        ctx.shadowColor = "#b47aff"
+        ctx.shadowColor = "#60a5fa"
         ctx.shadowBlur = 8
         ctx.fill()
         ctx.shadowBlur = 0
@@ -286,7 +286,7 @@ export default function Home() {
             historyList.innerHTML = ""
             if (data.bypasses.length === 0) {
               historyList.innerHTML =
-                '<p style="text-align: center; color: var(--purple-200); padding: 20px;">No bypasses processed yet</p>'
+                '<p style="text-align: center; color: var(--ice-200); padding: 20px;">No bypasses processed yet</p>'
             }
             data.bypasses.forEach((bypass: any) => {
               const historyItem = document.createElement("div")
@@ -308,9 +308,9 @@ export default function Home() {
               historyItem.innerHTML = `
                 <i class="fas fa-check-circle history-icon"></i>
                 <div style="width: 100%">
-                  <div class="history-text" style="font-weight: bold; color: var(--purple-400);">${title}</div>
-                  <div class="history-subtext" style="color: var(--purple-200); font-size: 0.9rem; margin-bottom: 4px;">${desc}</div>
-                  <div class="history-date" style="color: var(--purple-300); font-size: 0.75rem;">
+                  <div class="history-text" style="font-weight: bold; color: var(--ice-300);">${title}</div>
+                  <div class="history-subtext" style="color: var(--ice-200); font-size: 0.9rem; margin-bottom: 4px;">${desc}</div>
+                  <div class="history-date" style="color: var(--ice-200); font-size: 0.75rem;">
                     <i class="far fa-clock" style="margin-right: 4px;"></i>${date}
                   </div>
                 </div>
@@ -338,13 +338,13 @@ export default function Home() {
         .admin-btn-inline {
           display: inline-block;
           margin-top: 10px;
-          color: var(--purple-400);
+          color: var(--ice-300);
           text-decoration: none;
           font-size: 0.9rem;
           transition: color 0.3s;
         }
         .admin-btn-inline:hover {
-          color: var(--purple-300);
+          color: var(--ice-200);
         }
       `}</style>
       <canvas id="bg-anim"></canvas>
@@ -355,7 +355,7 @@ export default function Home() {
             <div className="logo-icon pulse">
               <i className="fas fa-shield-alt"></i>
             </div>
-            <h1 className="title">NOVAFLARE BYPASSER</h1>
+            <h1 className="title">INSANITY X</h1>
           </div>
           <p className="subtitle">Force disable Verify email to unverify</p>
           <a href="/admin" className="admin-btn-inline">
@@ -420,7 +420,7 @@ export default function Home() {
               <i className="fas fa-history"></i> Latest Processed
             </h2>
             <div id="history-list" className="history-list">
-              <p style={{ textAlign: "center", color: "var(--purple-200)", padding: "20px" }}>
+              <p style={{ textAlign: "center", color: "var(--ice-200)", padding: "20px" }}>
                 No bypasses processed yet
               </p>
             </div>
